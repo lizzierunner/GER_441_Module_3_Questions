@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Fairy Tales & Agency - A Magical Analysis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: #0a0e27;
+            color: #f1f1f1;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(25, 25, 112, 0.15), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(72, 61, 139, 0.1), transparent 50%);
+            animation: magicGlow 8s infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes magicGlow {
+            0% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.6; }
+        }
+        
+        /* Magical sparkles animation */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 3s infinite;
+            pointer-events: none;
+            box-shadow: 0 0 15px #ffd700, 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: translateY(0) scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: translateY(-30px) scale(2) rotate(180deg); }
+        }
+        
+        /* Wand trail effect */
+        .wand-trail {
+            position: fixed;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), transparent);
+            pointer-events: none;
+            animation: wandMove 2s ease-out forwards;
+            z-index: 100;
+        }
+        
+        @keyframes wandMove {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(50px); }
+        }
+        
+        /* Hogwarts letter falling */
+        .letter {
+            position: fixed;
+            font-size: 30px;
+            animation: letterFall 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        }
+        
+        @keyframes letterFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Floating golden snitches */
+        .snitch {
+            position: fixed;
+            font-size: 24px;
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px gold);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -40px) rotate(90deg); }
+            50% { transform: translate(-30px, -80px) rotate(180deg); }
+            75% { transform: translate(-60px, -40px) rotate(270deg); }
+        }
+        
+        /* Patronus effect */
+        .patronus {
+            position: fixed;
+            font-size: 50px;
+            opacity: 0.3;
+            animation: patronusMove 15s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 20px rgba(173, 216, 230, 0.8));
+        }
+        
+        @keyframes patronusMove {
+            0% { transform: translate(-100px, 50vh) scale(0.5); opacity: 0; }
+            10% { opacity: 0.4; }
+            50% { transform: translate(50vw, 30vh) scale(1); opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { transform: translate(calc(100vw + 100px), 70vh) scale(0.5); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .title-slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.3), transparent);
+            position: relative;
+        }
+        
+        .title-slide h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate, levitate 4s infinite ease-in-out;
+            position: relative;
+        }
+        
+        .title-slide h1::before {
+            content: '⚡';
+            position: absolute;
+            left: -80px;
+            animation: pulse 2s infinite;
+            font-size: 3rem;
+        }
+        
+        .title-slide h1::after {
+            content: '⚡';
+            position: absolute;
+            right: -80px;
+            animation: pulse 2s infinite;
+            font-size: 3rem;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px rgba(255, 215, 0, 0.5); }
+            to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ff8c00, 0 0 100px #ff4500, 0 0 120px rgba(255, 69, 0, 0.6); }
+        }
+        
+        .title-slide h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #c0c0c0;
+            margin-bottom: 10px;
+        }
+        
+        .title-slide p {
+            font-size: 1.3rem;
+            color: #b8b8b8;
+            font-style: italic;
+        }
+        
+        .house-crest {
+            font-size: 100px;
+            margin: 30px 0;
+            animation: levitate 3s infinite ease-in-out;
+        }
+        
+        @keyframes levitate {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 80px 20px;
+            border-top: 3px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #ffd700;
+            opacity: 0.6;
+        }
+        
+        .question-card {
+            background: linear-gradient(135deg, rgba(25, 25, 112, 0.3), rgba(72, 61, 139, 0.2));
+            border: 3px solid transparent;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(138, 43, 226, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(135deg, rgba(25, 25, 112, 0.3), rgba(72, 61, 139, 0.2)),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 215, 0, 0.03) 10px, rgba(255, 215, 0, 0.03) 20px);
+        }
+        
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff8c00, #722f37, #1e90ff, #ffd700);
+            background-size: 400% 400%;
+            border-radius: 15px;
+            z-index: -1;
+            animation: borderGlow 4s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .question-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3), 0 0 60px rgba(138, 43, 226, 0.4), inset 0 0 60px rgba(138, 43, 226, 0.2);
+        }
+        
+        .question-card:hover::before {
+            opacity: 1;
+        }
+        
+        .magic-corner {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.4;
+            animation: twinkle 3s infinite;
+            pointer-events: none;
+        }
+        
+        .magic-corner.top-left {
+            top: 15px;
+            left: 15px;
+        }
+        
+        .magic-corner.top-right {
+            top: 15px;
+            right: 15px;
+            animation-delay: 0.5s;
+        }
+        
+        .magic-corner.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            animation-delay: 1s;
+        }
+        
+        .magic-corner.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.8; transform: scale(1.2) rotate(180deg); }
+        }
+        
+        .question-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .question-icon {
+            font-size: 2.5rem;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #722f37;
+            border-radius: 8px;
+        }
+        
+        .answer-section {
+            margin-top: 20px;
+        }
+        
+        .answer-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #87ceeb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .answer-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #f0f0f0;
+            padding: 25px;
+            background: rgba(135, 206, 235, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #87ceeb;
+        }
+        
+        .answer-text strong {
+            color: #ffd700;
+            font-weight: 700;
+        }
+        
+        .answer-text em {
+            color: #ffb6c1;
+            font-style: italic;
+        }
+        
+        .key-point {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd700;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .conclusion-slide {
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2), transparent);
+        }
+        
+        .conclusion-slide h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px #ffd700;
+        }
+        
+        .spell-divider {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin: 60px 0;
+            animation: pulse 2s infinite;
+            position: relative;
+            text-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .spell-divider::before {
+            content: '✨ Lumos ✨';
+            display: block;
+            font-size: 1.2rem;
+            color: #87ceeb;
+            margin-bottom: 15px;
+            animation: fadeInOut 3s infinite;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); text-shadow: 0 0 30px #ffd700, 0 0 60px #ff8c00; }
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #ffd700;
+            animation: bounce 2s infinite;
+            z-index: 100;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            .scroll-indicator, .snitch, .sparkle {
+                display: none;
+            }
+            
+            .slide {
+                page-break-after: always;
+                min-height: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .title-slide h1 {
+                font-size: 2.5rem;
+            }
+            
+            .title-slide h2 {
+                font-size: 1.5rem;
+            }
+            
+            .question-card {
+                padding: 25px;
+            }
+            
+            .question-title {
+                font-size: 1.4rem;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .answer-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Title Slide -->
+    <div class="title-slide page-break">
+        <div class="container">
+            <div class="house-crest">🦁⚡🐍🦅</div>
+            <h1>Module 3</h1>
+            <h2>Fairy Tales, Agency & Character Archetypes</h2>
+            <p>"It is our choices, Harry, that show what we truly are, far more than our abilities."</p>
+            <p style="margin-top: 20px; font-size: 1.1rem;">— Albus Dumbledore</p>
+            <div style="margin-top: 50px; font-size: 1.2rem; color: #b8b8b8;">
+                <p>📚 Based on Ming-Hsun Lin's Scholarly Analysis</p>
+                <p style="margin-top: 10px;">🎬 Comparing Cinderella & Harry Potter</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="slide page-break">
+        <div class="container">
+            <div class="slide-number">Question 1</div>
+            <div class="question-card">
+                <div class="magic-corner top-left">✨</div>
+                <div class="magic-corner top-right">🌟</div>
+                <div class="magic-corner bottom-left">⭐</div>
+                <div class="magic-corner bottom-right">✨</div>
+                <div class="question-title">
+                    <span class="question-icon">👸</span>
+                    <span>The Princess as Prize or Person?</span>
+                </div>
+                <div class="question-text">
+                    Lin argues that the fairy-tale princess is often positioned as the "sought-for person" or the "reward" for the hero. When comparing Grimm's Cinderella to the Disney 1950 and 2015 versions, do we see Cinderella functioning more as a reward or as a character with meaningful agency?
+                </div>
+                <div class="answer-section">
+                    <div class="answer-label">
+                        <span>🪄</span>
+                        <span>Answer:</span>
+                    </div>
+                    <div class="answer-text">
+                        <strong>Grimm's Cinderella (1812):</strong> Functions primarily as a <em>reward</em>. She is passive, suffering patiently until magical intervention (birds, hazel tree) helps her. The prince seeks her based on physical beauty (the slipper test), and marriage is her escape from abuse rather than a choice she actively pursues.
+                        
+                        <div class="key-point">
+                            <strong>Disney 1950:</strong> Still largely a <em>reward figure</em>. While Cinderella shows kindness and resilience, her dreams center on romance as escape. The Fairy Godmother solves her problems, and the Prince rescues her from her situation. She waits to be found rather than seeking her own liberation.
+                        </div>
+                        
+                        <div class="key-point">
+                            <strong>Disney 2015:</strong> Shows meaningful <em>agency</em>. Cinderella (Ella) meets the Prince before the ball on her own terms. She demonstrates courage, chooses to attend the ball for herself (not just to escape), and ultimately makes the conscious choice to forgive her stepmother. She has depth beyond being the Prince's prize—her agency comes from moral courage and self-determination.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Conclusion:</strong> The evolution from Grimm to Disney 2015 shows a shift from <em>princess as reward</em> to <em>princess with agency</em>, reflecting changing cultural values about women's autonomy and choice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spell-divider">⚡ ✨ ⚡ ✨ ⚡</div>
+
+    <!-- Question 2 -->
+    <div class="slide page-break">
+        <div class="container">
+            <div class="slide-number">Question 2</div>
+            <div class="question-card">
+                <div class="magic-corner top-left">🔮</div>
+                <div class="magic-corner top-right">✨</div>
+                <div class="magic-corner bottom-left">✨</div>
+                <div class="magic-corner bottom-right">🔮</div>
+                <div class="question-title">
+                    <span class="question-icon">🎭</span>
+                    <span>Archetype vs. Stereotype</span>
+                </div>
+                <div class="question-text">
+                    Lin distinguishes between archetypes (flexible narrative roles) and stereotypes (limiting, predictable roles). In which moments do the Disney Cinderella films seem to follow cultural expectations more than narrative needs, causing the archetype to harden into stereotype?
+                </div>
+                <div class="answer-section">
+                    <div class="answer-label">
+                        <span>🪄</span>
+                        <span>Answer:</span>
+                    </div>
+                    <div class="answer-text">
+                        <strong>Disney 1950 - Stereotypical Moments:</strong>
+                        
+                        <div class="key-point">
+                            💃 <strong>The Ball as Ultimate Goal:</strong> Cinderella's entire dream revolves around going to a ball and meeting a prince. This reinforces the cultural stereotype that a woman's happiness depends on romantic validation and marriage.
+                        </div>
+                        
+                        <div class="key-point">
+                            🧹 <strong>Passive Suffering:</strong> Cinderella endures abuse without seeking help or planning escape. She waits for magical rescue rather than showing agency, reinforcing the "damsel in distress" stereotype.
+                        </div>
+                        
+                        <div class="key-point">
+                            👠 <strong>The Glass Slipper Test:</strong> Identity confirmed through physical attributes (shoe size) rather than personality, intelligence, or character—reducing her to a beautiful object to be claimed.
+                        </div>
+                        
+                        <div class="key-point">
+                            🧚 <strong>Magical Solution:</strong> External magic (Fairy Godmother) solves her problems rather than her own ingenuity or action, suggesting women need external rescue rather than self-reliance.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Disney 2015 - Progress but Still Some Stereotypes:</strong></p>
+                        
+                        <div class="key-point">
+                            ✨ While this version gives Ella more depth, the <em>narrative still centers marriage as the resolution</em> to her problems. Her escape from abuse comes through the Prince's intervention, not through her own resources or community support.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Key Insight:</strong> The archetype of the "virtuous maiden" becomes a stereotype when her only path to happiness is through marriage and male rescue, rather than education, work, friendship, or self-determination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spell-divider">⚡ ✨ ⚡ ✨ ⚡</div>
+
+    <!-- Question 3 -->
+    <div class="slide page-break">
+        <div class="container">
+            <div class="slide-number">Question 3</div>
+            <div class="question-card">
+                <div class="magic-corner top-left">⚡</div>
+                <div class="magic-corner top-right">🪄</div>
+                <div class="magic-corner bottom-left">🪄</div>
+                <div class="magic-corner bottom-right">⚡</div>
+                <div class="question-title">
+                    <span class="question-icon">⚡</span>
+                    <span>Beyond Romance: Harry's Journey</span>
+                </div>
+                <div class="question-text">
+                    In the 2001 film <em>Harry Potter and the Sorcerer's Stone</em>, the story emphasizes Harry's emotional journey and identity development. How does this shift the fairy-tale structure away from romance and toward themes like belonging, friendship, and self-discovery?
+                </div>
+                <div class="answer-section">
+                    <div class="answer-label">
+                        <span>🪄</span>
+                        <span>Answer:</span>
+                    </div>
+                    <div class="answer-text">
+                        <strong>Harry Potter redefines the fairy tale hero's quest:</strong>
+                        
+                        <div class="key-point">
+                            🏠 <strong>Belonging Over Romance:</strong> Harry's deepest desire isn't romantic love but <em>belonging</em>. The Mirror of Erised shows him surrounded by his family. Hogwarts becomes his true home, and found family (Ron, Hermione, Hagrid) replaces biological family.
+                        </div>
+                        
+                        <div class="key-point">
+                            🤝 <strong>Friendship as Central Force:</strong> Unlike traditional fairy tales where romance drives the plot, Harry's survival and success depend entirely on friendship. Hermione's logic, Ron's loyalty, and Neville's courage are essential. The story validates platonic love as equally powerful as romantic love.
+                        </div>
+                        
+                        <div class="key-point">
+                            🔍 <strong>Identity and Self-Discovery:</strong> Harry's journey is about discovering who he is beyond the labels ("The Boy Who Lived," "The Chosen One"). His choices—choosing Gryffindor over Slytherin, risking his life for the Stone—define his character. This is about <em>becoming</em> rather than <em>winning</em> someone.
+                        </div>
+                        
+                        <div class="key-point">
+                            ⚔️ <strong>Moral Growth Over Marriage:</strong> The climax isn't about winning a princess but about choosing good over evil, courage over fear, and love over power. Harry's victory comes from his mother's love and his own moral courage—not from romantic fulfillment.
+                        </div>
+                        
+                        <div class="key-point">
+                            🎓 <strong>Education and Agency:</strong> Unlike Cinderella who waits for rescue, Harry actively learns, trains, and develops skills. Knowledge is power, and the library (Hermione's domain) is as important as wands.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Significance:</strong> By centering belonging, friendship, and self-discovery, <em>Harry Potter</em> modernizes the fairy tale to reflect contemporary values—that a person's worth isn't determined by romantic success, but by their choices, relationships, and character development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spell-divider">⚡ ✨ ⚡ ✨ ⚡</div>
+
+    <!-- Question 4 -->
+    <div class="slide page-break">
+        <div class="container">
+            <div class="slide-number">Question 4</div>
+            <div class="question-card">
+                <div class="magic-corner top-left">🦅</div>
+                <div class="magic-corner top-right">🦁</div>
+                <div class="magic-corner bottom-left">🐍</div>
+                <div class="magic-corner bottom-right">🦡</div>
+                <div class="question-title">
+                    <span class="question-icon">🦸</span>
+                    <span>Rescue Dynamics Reimagined</span>
+                </div>
+                <div class="question-text">
+                    Rescue scenes are central to many fairy tales. How do rescue dynamics differ between Cinderella (being recognized and "rescued" through marriage) and Harry Potter (where survival often depends on friendship and collaboration rather than romantic rescue)?
+                </div>
+                <div class="answer-section">
+                    <div class="answer-label">
+                        <span>🪄</span>
+                        <span>Answer:</span>
+                    </div>
+                    <div class="answer-text">
+                        <strong>Cinderella's Rescue Model:</strong>
+                        
+                        <div class="key-point">
+                            👑 <strong>Vertical/Hierarchical:</strong> The Prince (higher social status) rescues Cinderella (lower status) through marriage. She moves from servant to princess—rescued from her circumstances by someone more powerful.
+                        </div>
+                        
+                        <div class="key-point">
+                            💍 <strong>Romantic Recognition:</strong> Rescue = being recognized as the "right" woman through the glass slipper. Her identity is confirmed by physical beauty and the Prince's choice. She is passive—rescued <em>by</em> someone rather than rescuing herself.
+                        </div>
+                        
+                        <div class="key-point">
+                            🏰 <strong>Individual Solution:</strong> One hero (Prince) saves one victim (Cinderella). It's a binary rescue: powerful male saves powerless female.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Harry Potter's Rescue Model:</strong></p>
+                        
+                        <div class="key-point">
+                            🤝 <strong>Horizontal/Collaborative:</strong> Harry, Ron, and Hermione are peers who save each other repeatedly. Ron saves Harry from the Devil's Snare moment (in the chess game), Hermione saves both with her logic, Harry saves them with courage. It's mutual and reciprocal.
+                        </div>
+                        
+                        <div class="key-point">
+                            🧠 <strong>Skill-Based Teamwork:</strong> Each person contributes unique skills: Hermione's intelligence, Ron's strategic thinking, Harry's courage and love. No single person has all the answers. Rescue requires diverse strengths working together.
+                        </div>
+                        
+                        <div class="key-point">
+                            💪 <strong>Active Participation:</strong> Characters rescue <em>themselves through collaboration</em>. When Harry faces Quirrell/Voldemort, it's his own choices and his mother's protective love (another form of non-romantic love) that save him—not a more powerful male figure.
+                        </div>
+                        
+                        <div class="key-point">
+                            🔄 <strong>Reciprocal Vulnerability:</strong> Everyone needs saving at different times. Harry needs rescuing as much as he rescues others, breaking the "strong hero/weak victim" binary. This models healthy interdependence rather than dependence.
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>Critical Difference:</strong></p>
+                        <ul style="margin-left: 30px; margin-top: 10px; line-height: 2;">
+                            <li><strong>Cinderella:</strong> Rescue = escaping oppression through romantic marriage (external savior)</li>
+                            <li><strong>Harry Potter:</strong> Rescue = surviving challenges through friendship and mutual support (community strength)</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><em>This shift reflects a more egalitarian worldview where survival depends on community and cooperation rather than hierarchical power and romance.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spell-divider">⚡ ✨ ⚡ ✨ ⚡</div>
+
+    <!-- Question 5 -->
+    <div class="slide page-break">
+        <div class="container">
+            <div class="slide-number">Question 5</div>
+            <div class="question-card">
+                <div class="magic-corner top-left">🔑</div>
+                <div class="magic-corner top-right">✨</div>
+                <div class="magic-corner bottom-left">✨</div>
+                <div class="magic-corner bottom-right">🗝️</div>
+                <div class="question-title">
+                    <span class="question-icon">🗝️</span>
+                    <span>True Agency: Who Chooses Their Fate?</span>
+                </div>
+                <div class="question-text">
+                    If we define agency as a character making meaningful choices that affect the outcome of the story, which version—Grimm Cinderella, Disney 1950, Disney 2015, or Harry Potter (2001)—provides the strongest example of true agency, and why?
+                </div>
+                <div class="answer-section">
+                    <div class="answer-label">
+                        <span>🪄</span>
+                        <span>Answer:</span>
+                    </div>
+                    <div class="answer-text">
+                        <strong>Agency Ranking (Weakest to Strongest):</strong>
+                        
+                        <div class="key-point">
+                            <strong>4. Grimm's Cinderella (Minimal Agency):</strong>
+                            <br>❌ She makes almost no active choices. Things <em>happen to her</em>: her father remarries, her stepfamily abuses her, birds and the hazel tree provide magic, the prince finds her. She endures and waits. Her only "choice" is moral goodness—but even that doesn't drive plot outcomes. <em>Agency: Very Low</em>
+                        </div>
+                        
+                        <div class="key-point">
+                            <strong>3. Disney 1950 Cinderella (Limited Agency):</strong>
+                            <br>⚠️ Slightly more active—she dreams, she wants to go to the ball, she tries to make a dress. But her stepfamily destroys it, and the Fairy Godmother provides the real solution. The Prince chooses her; she doesn't choose her fate. She's kind and hopeful but reactive rather than proactive. <em>Agency: Low-Medium</em>
+                        </div>
+                        
+                        <div class="key-point">
+                            <strong>2. Disney 2015 Cinderella (Moderate Agency):</strong>
+                            <br>✅ Makes meaningful choices: choosing courage and kindness, meeting Kit (the Prince) on her terms first, deciding to attend the ball for herself, and crucially—choosing to forgive her stepmother. These choices affect the story's emotional arc and show moral agency. However, she still needs magical intervention and the Prince's proposal to escape her situation. <em>Agency: Medium-High</em>
+                        </div>
+                        
+                        <div class="key-point">
+                            <strong>1. Harry Potter 2001 (Strongest Agency):</strong>
+                            <br>⭐ <strong>Why Harry has the most agency:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
+                                <li><strong>Choice defines identity:</strong> "Not Slytherin!" Harry's choice of Gryffindor shapes his entire journey. As Dumbledore says, "It is our choices...that show what we truly are."</li>
+                                <li><strong>Active problem-solving:</strong> Harry doesn't wait for rescue. He investigates the Stone mystery, trains for challenges, and confronts danger directly.</li>
+                                <li><strong>Moral choices with consequences:</strong> Standing up to friends (Neville), protecting the Stone, risking his life—these choices directly affect outcomes. Without Harry's courage, Voldemort gets the Stone.</li>
+                                <li><strong>Rejects predetermined fate:</strong> Though "The Chosen One," Harry's power comes from his <em>choices</em>, not prophecy. Love and sacrifice (his mother's, his own willingness) triumph over destiny.</li>
+                                <li><strong>Consequences matter:</strong> Harry's actions have real stakes—he could die, fail, or lose friends. His choices create actual change.</li>
+                            </ul>
+                        </div>
+                        
+                        <p style="margin-top: 20px;"><strong>💫 Conclusion:</strong></p>
+                        <div class="key-point">
+                            <strong>Harry Potter (2001)</strong> demonstrates the <em>strongest agency</em> because:
+                            <ol style="margin-left: 20px; margin-top: 10px; line-height: 2;">
+                                <li>His choices drive the plot forward (not external forces or romance)</li>
+                                <li>He actively pursues goals rather than waiting for rescue</li>
+                                <li>His decisions have meaningful consequences for himself and others</li>
+                                <li>The narrative validates agency over destiny, choice over circumstance</li>
+                                <li>Multiple characters (including female characters like Hermione) also demonstrate strong agency</li>
+                            </ol>
+                            <br>
+                            <em>This represents a significant evolution in storytelling—from passive princesses awaiting rescue to active heroes shaping their own destinies through courage, friendship, and choice.</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spell-divider">⚡ ✨ ⚡ ✨ ⚡</div>
+
+    <!-- Conclusion Slide -->
+    <div class="slide conclusion-slide page-break">
+        <div class="container">
+            <h2>🌟 Key Takeaways 🌟</h2>
+            <div class="question-card">
+                <div class="answer-text">
+                    <div class="key-point">
+                        <strong>1. Evolution of Female Characters:</strong> From passive rewards (Grimm) to characters with moral agency (Disney 2015), reflecting changing cultural values about women's autonomy.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>2. Archetypes vs. Stereotypes:</strong> Fairy tales risk becoming stereotypical when they prioritize cultural expectations (marriage as ultimate goal) over narrative complexity and character depth.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>3. Beyond Romance:</strong> Harry Potter demonstrates that compelling narratives can center friendship, belonging, and self-discovery rather than romantic love.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>4. Collaborative vs. Hierarchical Rescue:</strong> Modern stories increasingly show rescue as mutual and collaborative rather than powerful male saving powerless female.
+                    </div>
+                    
+                    <div class="key-point">
+                        <strong>5. True Agency = Meaningful Choice:</strong> Characters with agency make decisions that drive plot outcomes and face real consequences, reflecting our belief that individuals shape their own destinies.
+                    </div>
+                    
+                    <p style="margin-top: 40px; text-align: center; font-size: 1.4rem; color: #ffd700; font-style: italic;">
+                        "It matters not what someone is born, but what they grow to be."
+                        <br>
+                        <span style="font-size: 1rem; color: #b8b8b8;">— Albus Dumbledore</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; font-size: 3rem;">
+                ⚡🦉📚✨
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; font-size: 1.3rem; color: #c0c0c0;">
+                <p>Mischief Managed.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator" onclick="window.scrollTo({top: window.scrollY + window.innerHeight, behavior: 'smooth'})">
+        ⬇️
+    </div>
+
+    <script>
+        // Create magical sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 3000);
+        }
+        
+        setInterval(createSparkle, 200);
+        
+        // Create floating golden snitches
+        function createSnitch() {
+            const snitch = document.createElement('div');
+            snitch.className = 'snitch';
+            const snitchIcons = ['✨', '⭐', '💫', '🌟'];
+            snitch.textContent = snitchIcons[Math.floor(Math.random() * snitchIcons.length)];
+            snitch.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+            snitch.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            snitch.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            snitch.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(snitch);
+        }
+        
+        for (let i = 0; i < 12; i++) {
+            createSnitch();
+        }
+        
+        // Create falling Hogwarts letters
+        function createLetter() {
+            const letter = document.createElement('div');
+            letter.className = 'letter';
+            letter.textContent = '📨';
+            letter.style.left = Math.random() * window.innerWidth + 'px';
+            letter.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            letter.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(letter);
+            
+            setTimeout(() => letter.remove(), 15000);
+        }
+        
+        setInterval(createLetter, 3000);
+        
+        // Create patronus animals
+        function createPatronus() {
+            const patronus = document.createElement('div');
+            patronus.className = 'patronus';
+            const animals = ['🦌', '🦅', '🐺', '🐴', '🦊', '🐈'];
+            patronus.textContent = animals[Math.floor(Math.random() * animals.length)];
+            patronus.style.top = (Math.random() * 60 + 20) + 'vh';
+            patronus.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            patronus.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(patronus);
+            
+            setTimeout(() => patronus.remove(), 20000);
+        }
+        
+        createPatronus();
+        setInterval(createPatronus, 15000);
+        
+        // Wand trail effect on mouse move
+        let wandTimeout;
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) { // Only create trails occasionally
+                const trail = document.createElement('div');
+                trail.className = 'wand-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => trail.remove(), 2000);
+            }
+        });
+        
+        // Hide scroll indicator when near bottom
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+        
+        // Add hover effect to question cards
+        document.querySelectorAll('.question-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Create burst of magical sparks
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        const spark = document.createElement('div');
+                        const sparkTypes = ['✨', '⭐', '💫', '🌟', '⚡'];
+                        spark.textContent = sparkTypes[Math.floor(Math.random() * sparkTypes.length)];
+                        spark.style.position = 'absolute';
+                        spark.style.left = Math.random() * card.offsetWidth + 'px';
+                        spark.style.top = Math.random() * card.offsetHeight + 'px';
+                        spark.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                        spark.style.transition = 'all 1.5s ease-out';
+                        spark.style.pointerEvents = 'none';
+                        spark.style.zIndex = '1000';
+                        card.appendChild(spark);
+                        
+                        setTimeout(() => {
+                            spark.style.opacity = '0';
+                            spark.style.transform = `translateY(-${Math.random() * 50 + 30}px) scale(${Math.random() * 2 + 1}) rotate(${Math.random() * 360}deg)`;
+                        }, 50);
+                        
+                        setTimeout(() => spark.remove(), 1500);
+                    }, i * 80);
+                }
+            });
+            
+            // Add click animation for spell casting effect
+            card.addEventListener('click', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                for (let i = 0; i < 12; i++) {
+                    const particle = document.createElement('div');
+                    particle.textContent = '✨';
+                    particle.style.position = 'absolute';
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.fontSize = '20px';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.zIndex = '1000';
+                    card.appendChild(particle);
+                    
+                    const angle = (Math.PI * 2 * i) / 12;
+                    const distance = 100;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    
+                    particle.style.transition = 'all 1s ease-out';
+                    setTimeout(() => {
+                        particle.style.transform = `translate(${tx}px, ${ty}px) scale(0) rotate(720deg)`;
+                        particle.style.opacity = '0';
+                    }, 50);
+                    
+                    setTimeout(() => particle.remove(), 1000);
+                }
+            });
+        });
+        
+        // Add title animation on load
+        window.addEventListener('load', () => {
+            const title = document.querySelector('.title-slide h1');
+            if (title) {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const spark = document.createElement('div');
+                        spark.textContent = ['⚡', '✨', '🌟'][Math.floor(Math.random() * 3)];
+                        spark.style.position = 'fixed';
+                        spark.style.left = (window.innerWidth / 2 + (Math.random() - 0.5) * 300) + 'px';
+                        spark.style.top = (window.innerHeight / 2 + (Math.random() - 0.5) * 200) + 'px';
+                        spark.style.fontSize = '30px';
+                        spark.style.transition = 'all 2s ease-out';
+                        spark.style.pointerEvents = 'none';
+                        spark.style.zIndex = '1000';
+                        document.body.appendChild(spark);
+                        
+                        setTimeout(() => {
+                            spark.style.opacity = '0';
+                            spark.style.transform = `translateY(-100px) scale(2) rotate(360deg)`;
+                        }, 100);
+                        
+                        setTimeout(() => spark.remove(), 2000);
+                    }, i * 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
